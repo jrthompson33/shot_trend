@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Shot Trend</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/jquery-ui.min.css">
+    <link rel="stylesheet" href="css/jquery-ui.structure.min.css">
+    <link rel="stylesheet" href="css/main.css">
+    <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
+</head>
+<body>  
+<div id="main" class="container-fluid">
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+            <!--<div class="navbar-header">-->
+                <!--<a class="navbar-brand" href="#"><img width="30px" height="30px" src="logo.png" style="float:left"></a>-->
+            <!--</div>-->
+
+            <div class="navbar-middle">
+                <h1 id="navTitle" class="active">Shot Trend</h1>
+            </div>
+
+
+            <div class="navbar-left" id="backToRounds" onclick="rTool.backToRounds()" style="top:-36px;position:relative;visibility:hidden">
+                <a href="#"><span class="glyphicon glyphicon-chevron-left"></span> Back to Rounds</a>
+            </div>
+            <!--<div class="navbar-right" style="display: inline-block">-->
+                <!--<h1 class="active">Shot Trend</h1>-->
+            <!--</div>-->
+
+            <div class="navbar-left navbar-svg" style="margin:-78px 0 0 100%;left:-240px;">
+                <svg height="42" width="240">
+                    <g transform="translate(6,19.5)"><circle r="5" fill="#1a9641"></circle><text x="10" dy=".35em">Eagle</text></g>
+                    <g transform="translate(6,36.5)"><circle r="5" fill="#a6d96a"></circle><text x="10" dy=".35em">Birdie</text></g>
+                    <g transform="translate(76,19.5)"><circle r="5" fill="#ffffbf"></circle><text x="10" dy=".35em">Par</text></g>
+                    <g transform="translate(76,36.5)"><circle r="5" fill="#f7b942"></circle><text x="10" dy=".35em">Bogey</text></g>
+                    <g transform="translate(146,19.5)"><circle r="5" fill="#ee5a00"></circle><text x="10" dy=".35em">Double Bogey</text></g>
+                    <g transform="translate(146,36.5)"><circle r="5" fill="#d43028"></circle><text x="10" dy=".35em">Other</text></g>
+                </svg>
+            </div>
+        </div>
+    </nav>
+
+    <div id="panel-overview" class="panel active switchable col-md-12 col-lg-12">
+        <div id="content-overview" class="content col-md-10 col-lg-10">
+            <div class="container-fluid" id="round-list">
+                <div id="round-list-header">
+                    <div style="width:20%; height: 100%; display: inline-block; position: relative; float: left;">
+                        <div style="height: 100%;">
+                            <span class="rp-hole-score" style="text-align: left;color: #193f89;">Round</span>
+                        </div>
+                    </div>
+                    <div style="width:40%; display: inline-block; position: relative; float: left; height: 100%">
+                        <div class="round-col" style="border-left:none">
+                            <span class="rp-hole-score" style="color: #193f89">Fwys Hit</span>
+                        </div>
+                        <div class="round-col" style="border-left:none">
+                            <span class="rp-hole-score" style="color: #193f89">GIR</span>
+                        </div>
+                        <div class="round-col" style="border-left:none">
+                            <span class="rp-hole-score" style="color: #193f89">Up & Down</span>
+                        </div>
+                        <div class="round-col" style="border-left:none">
+                            <span class="rp-hole-score" style="color: #193f89">Sand Save</span>
+                        </div>
+                        <div class="round-col" style="border-left:none">
+                            <span class="rp-hole-score" style="color: #193f89">Strokes</span>
+                        </div>
+                        <div class="round-col" style="border-left:none">
+                            <span class="rp-hole-score" style="color: #193f89">Par</span>
+                        </div>
+                        <div class="round-col" style="border-left:none">
+                            <span class="rp-hole-score" style="color: #193f89">Score</span>
+                        </div>
+                        <div class="round-col" style="border-left:none">
+                            <span class="rp-hole-score" style="color: #193f89">Putts</span>
+                        </div>
+                    </div>
+                    <div style="width:40%; display: inline-block; position: relative; float: left; height: 100%">
+                        <div class="round-col" style="border-left:none;width:100%;">
+                            <span class="rp-hole-score" style="color: #193f89">Scoring Chart</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="list-container">
+                    <ul data-bind="foreach: $data.rounds">
+
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="panel-round" class="panel switchable col-md-12 col-lg-12">
+        <div id="content-round" class="content">
+
+            <div class="col-md-3 col-lg-3" id="rp-hole-list">
+                <div id="rp-hole-list-header">
+                    <div style="width:58%; height: 100%; display: inline-block; position: relative; float: left;">
+                        <div style="height: 100%;">
+                            <span class="rp-hole-score" style="text-align: left;">Hole</span>
+                        </div>
+                    </div>
+                    <div style="width:42%; display: inline-block; position: relative; float: left; height: 100%">
+                        <div class="rp-hole-col">
+                            <span class="rp-hole-score">Score</span>
+                        </div>
+                        <div class="rp-hole-col">
+                            <span class="rp-hole-score">Strokes</span>
+                        </div>
+                        <div class="rp-hole-col">
+                            <span class="rp-hole-score">Putts</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="list-container">
+                    <div class="total round-out-in">
+                    </div>
+                    <ul class="front" data-bind="foreach: $data.holes.slice(0,9)">
+                    </ul>
+                    <div class="out round-out-in rp-hole-item" style="height: 68px; position: relative;">
+                        <div class="hole-number">
+                            <span data-bind="text: $data.out.hole"></span>
+                        </div>
+                        <div style="display: inline-block; width: 58%; position: relative; left: 0; top: 0; margin-left: -20px; height: 100%; float: left;">
+                            <div style="display: inline-block; width: 100%; position: relative; left: 34px; top: 0; height: 20px; float: left;">
+                                <span class="rp-hole-info value" data-bind="text: $data.out.yardage"></span>
+                                <span class="rp-hole-info">yards</span>
+                                <span class="rp-hole-info value">/</span>
+                                <span class="rp-hole-info">par</span>
+                                <span class="rp-hole-info value" data-bind="text: $data.out.parValue"></span>
+                            </div>
+                            <div style="display: inline-block; width: 100%; position: relative; left: 16px; top: 4px; height: 16px; float: left;">
+                                <span class="rp-hole-info value" style=" margin-left: 0;" data-bind="text: $data.out.fairwayHitString()"></span>
+                                <span class="rp-hole-info value" style=" margin-left: 12px;" data-bind="text: $data.out.greenInRegString()"></span>
+                                <span class="rp-hole-info value" style=" margin-left: 12px;" data-bind="text: $data.out.upAndDownString()"></span>
+                                <span class="rp-hole-info value" style=" margin-left: 12px;" data-bind="text: $data.out.sandSaveString()"></span>
+                            </div>
+                            <div style="display: inline-block; width: 100%; position: relative; left: 16px; top: 0; height: 10px; float: left;">
+                                <span class="rp-hole-info" style=" margin-left: 4px;">Fwy Hit</span>
+                                <span class="rp-hole-info" style=" margin-left: 20px;">GIR</span>
+                                <span class="rp-hole-info" style=" margin-left: 20px;">Scrambling</span>
+                                <span class="rp-hole-info" style=" margin-left: 6px;">Sand Save</span>
+                            </div>
+                        </div>
+                        <div style="display: inline-block; width: 42%; position: relative; left: 4px; height: 100%">
+                            <div class="rp-hole-col round-score">
+                                <span class="rp-hole-score value" data-bind="text: $data.out.roundScore"></span>
+                            </div>
+                            <div class="rp-hole-col num-strokes">
+                                <span class="rp-hole-score value" style="font-weight: 400;" data-bind="text: $data.out.numStrokes"></span>
+                            </div>
+                            <div class="rp-hole-col num-putts">
+                                <span class="rp-hole-score value" data-bind="text: $data.out.numPutts"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <ul class="back" data-bind="foreach: $data.holes.slice(9,18)">
+                    </ul>
+                    <div class="in round-out-in rp-hole-item" style="height: 68px; position: relative;">
+                        <div class="hole-number">
+                            <span data-bind="text: $data.in.hole"></span>
+                        </div>
+                        <div style="display: inline-block; width: 58%; position: relative; left: 0; top: 0; margin-left: -20px; height: 100%; float: left;">
+                            <div style="display: inline-block; width: 100%; position: relative; left: 34px; top: 0; height: 20px; float: left;">
+                                <span class="rp-hole-info value" data-bind="text: $data.in.yardage"></span>
+                                <span class="rp-hole-info">yards</span>
+                                <span class="rp-hole-info value">/</span>
+                                <span class="rp-hole-info">par</span>
+                                <span class="rp-hole-info value" data-bind="text: $data.in.parValue"></span>
+                            </div>
+                            <div style="display: inline-block; width: 100%; position: relative; left: 16px; top: 4px; height: 16px; float: left;">
+                                <span class="rp-hole-info value" style=" margin-left: 0;" data-bind="text: $data.in.fairwayHitString()"></span>
+                                <span class="rp-hole-info value" style=" margin-left: 12px;" data-bind="text: $data.in.greenInRegString()"></span>
+                                <span class="rp-hole-info value" style=" margin-left: 12px;" data-bind="text: $data.in.upAndDownString()"></span>
+                                <span class="rp-hole-info value" style=" margin-left: 12px;" data-bind="text: $data.in.sandSaveString()"></span>
+                            </div>
+                            <div style="display: inline-block; width: 100%; position: relative; left: 16px; top: 0; height: 10px; float: left;">
+                                <span class="rp-hole-info" style=" margin-left: 4px;">Fwy Hit</span>
+                                <span class="rp-hole-info" style=" margin-left: 20px;">GIR</span>
+                                <span class="rp-hole-info" style=" margin-left: 20px;">Scrambling</span>
+                                <span class="rp-hole-info" style=" margin-left: 6px;">Sand Save</span>
+                            </div>
+                        </div>
+                        <div style="display: inline-block; width: 42%; position: relative; left: 4px; height: 100%">
+                            <div class="rp-hole-col round-score">
+                                <span class="rp-hole-score value" data-bind="text: $data.in.roundScore"></span>
+                            </div>
+                            <div class="rp-hole-col num-strokes">
+                                <span class="rp-hole-score value" style="font-weight: 400;" data-bind="text: $data.in.numStrokes"></span>
+                            </div>
+                            <div class="rp-hole-col num-putts">
+                                <span class="rp-hole-score value" data-bind="text: $data.in.numPutts"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="total round-out-in rp-hole-item" style="height: 68px; position: relative;">
+                        <div class="hole-number">
+                            <span data-bind="text: $data.total.hole"></span>
+                        </div>
+                        <div style="display: inline-block; width: 58%; position: relative; left: 0; top: 0; margin-left: -20px; height: 100%; float: left;">
+                            <div style="display: inline-block; width: 100%; position: relative; left: 34px; top: 0; height: 20px; float: left;">
+                                <span class="rp-hole-info value" data-bind="text: $data.total.yardage"></span>
+                                <span class="rp-hole-info">yards</span>
+                                <span class="rp-hole-info value">/</span>
+                                <span class="rp-hole-info">par</span>
+                                <span class="rp-hole-info value" data-bind="text: $data.total.parValue"></span>
+                            </div>
+                            <div style="display: inline-block; width: 100%; position: relative; left: 16px; top: 4px; height: 16px; float: left;">
+                                <span class="rp-hole-info value" style=" margin-left: 0;" data-bind="text: $data.total.fairwayHitString()"></span>
+                                <span class="rp-hole-info value" style=" margin-left: 12px;" data-bind="text: $data.total.greenInRegString()"></span>
+                                <span class="rp-hole-info value" style=" margin-left: 12px;" data-bind="text: $data.total.upAndDownString()"></span>
+                                <span class="rp-hole-info value" style=" margin-left: 12px;" data-bind="text: $data.total.sandSaveString()"></span>
+                            </div>
+                            <div style="display: inline-block; width: 100%; position: relative; left: 16px; top: 0; height: 10px; float: left;">
+                                <span class="rp-hole-info" style=" margin-left: 4px;">Fwy Hit</span>
+                                <span class="rp-hole-info" style=" margin-left: 20px;">GIR</span>
+                                <span class="rp-hole-info" style=" margin-left: 20px;">Scrambling</span>
+                                <span class="rp-hole-info" style=" margin-left: 6px;">Sand Save</span>
+                            </div>
+                        </div>
+                        <div style="display: inline-block; width: 42%; position: relative; left: 4px; height: 100%">
+                            <div class="rp-hole-col round-score">
+                                <span class="rp-hole-score value" data-bind="text: $data.total.roundScore"></span>
+                            </div>
+                            <div class="rp-hole-col num-strokes">
+                                <span class="rp-hole-score value" style="font-weight: 400;" data-bind="text: $data.total.numStrokes"></span>
+                            </div>
+                            <div class="rp-hole-col num-putts">
+                                <span class="rp-hole-score value" data-bind="text: $data.total.numPutts"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="rp-hole-vis" class="col-md-9 col-lg-9"></div>
+        </div>
+    </div>
+
+    <div id="panel-analysis" class="panel switchable col-md-12 col-lg-12">
+        <div id="content-analysis" class="content"></div>
+    </div>
+</div>
+
+
+<script src="js/vendor/math.min.js"></script>
+<script src="js/vendor/moment.min.js"></script>
+<script src="js/vendor/jquery-1.11.2.min.js"></script>
+<script src="js/vendor/jquery-ui.min.js"></script>
+<script src="js/vendor/knockout-3.4.0.js"></script>
+<script src="js/vendor/bootstrap.min.js"></script>
+<script src="js/vendor/d3.min.js"></script>
+<script src="js/vendor/d3.tip.js"></script>
+<script src="js/vendor/topojson.min.js"></script>
+<script src="js/main.js"></script>
+<script src="js/utils.js"></script>
+<script src="js/classes.js"></script>
+<script src="js/overview_tool.js"></script>
+<script src="js/round_tool.js"></script>
+<script src="js/club_tool.js"></script>
+<script src="js/tee_tool.js"></script>
+<script src="js/approach_tool.js"></script>
+<script src="js/short_tool.js"></script>
+<script src="js/putt_tool.js"></script>
+<script>
+    $(window).on("resize", main.resizeWindow);
+
+    var h = $(window).height() - $('.navbar.navbar-default').height();
+    var w = $(window).width();
+    $('#main').height(h).width(w);
+
+    // Set params for size of visualization
+    var params = {width: w, height: h, datapath: './data/data.json'};
+
+    // Allow injection of params to tweak the vis
+    var query = window.location.search.substring(1);
+    var vars = query.split('&');
+    vars.forEach(function (v) {
+        var p = v.split('=');
+        params[p[0]] = p[1];
+    });
+
+    main.init(params);
+</script>
+</body>
+</html>

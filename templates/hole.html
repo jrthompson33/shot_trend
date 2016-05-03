@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<li class="rp-hole-item" data-bind="click: function(data,event){rTool.holeClick($element, $data);}">
+    <div style="height: 52px; position: relative;">
+        <div class="hole-number">
+            <span data-bind="text: $data.hole"></span>
+        </div>
+        <div style="display: inline-block; width: 58%; position: relative; left: 0; top: 0; margin-left: -20px; height: 100%; float: left;">
+            <div style="display: inline-block; width: 100%; position: relative; left: 34px; top: 0; height: 20px; float: left;">
+                <span class="rp-hole-info value" data-bind="text: $data.yardage"></span>
+                <span class="rp-hole-info">yards</span>
+                <span class="rp-hole-info value">/</span>
+                <span class="rp-hole-info">par</span>
+                <span class="rp-hole-info value" data-bind="text: $data.parValue"></span>
+            </div>
+            <div style="display: inline-block; width: 100%; position: relative; left: 34px; top: 0; height: 30px; float: left;">
+                <span class="rp-hole-info value glyphicon glyphicon-ok" data-bind="visible: $data.parValue > 3 && $data.fairwayHit"></span>
+                <span class="rp-hole-info value glyphicon glyphicon-remove" data-bind="visible: $data.parValue > 3 && !$data.fairwayHit"></span>
+                <span class="rp-hole-info value" data-bind="visible: $data.parValue > 3">Fwy Hit /</span>
+                <span class="rp-hole-info value glyphicon glyphicon-ok" data-bind="visible: $data.greenInReg"></span>
+                <span class="rp-hole-info value" data-bind="visible: $data.greenInReg">GIR</span>
+                <span class="rp-hole-info value glyphicon glyphicon-ok" data-bind="visible: !$data.greenInReg && !$data.bunkerShot && $data.upAndDown"></span>
+                <span class="rp-hole-info value glyphicon glyphicon-remove" data-bind="visible: !$data.greenInReg && !$data.bunkerShot && !$data.upAndDown"></span>
+                <span class="rp-hole-info value" data-bind="visible: !$data.greenInReg && !$data.bunkerShot">Scrambling</span>
+                <span class="rp-hole-info value glyphicon glyphicon-ok" data-bind="visible: !$data.greenInReg && $data.bunkerShot && $data.sandSave"></span>
+                <span class="rp-hole-info value glyphicon glyphicon-remove" data-bind="visible: !$data.greenInReg && $data.bunkerShot && !$data.sandSave"></span>
+                <span class="rp-hole-info value" data-bind="visible: !$data.greenInReg && $data.bunkerShot">Sand Save</span>
+            </div>
+            <div class="hole-score-marker" data-bind="style:{ 'background-color' :  $data.scoreColor() }"></div>
+        </div>
+
+        <div style="display: inline-block; width: 42%; position: relative; left: 4px; height: 100%">
+            <div class="rp-hole-col round-score">
+                <span class="rp-hole-score value" data-bind="text: $data.roundScore"></span>
+            </div>
+            <div class="rp-hole-col num-strokes">
+                <span class="rp-hole-score value" style="font-weight: 400; color: #193f89" data-bind="text: $data.numStrokes"></span>
+            </div>
+            <div class="rp-hole-col num-putts">
+                <span class="rp-hole-score value" data-bind="text: $data.numPutts"></span>
+            </div>
+        </div>
+    </div>
+</li>
+</body>
+</html>

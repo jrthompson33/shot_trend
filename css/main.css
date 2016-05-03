@@ -1,0 +1,811 @@
+.switchable.active {
+    display: block;
+}
+
+.switchable {
+    display: none;
+}
+
+#main {
+    padding: 0 0;
+}
+
+.d3-tip {
+    line-height: 1;
+    font-size:10px;
+    padding: 12px;
+    background: rgba(0, 0, 0, 0.8);
+    color: #fff;
+    border-radius: 2px;
+}
+
+/* Creates a small triangle extender for the tooltip */
+.d3-tip:after {
+    box-sizing: border-box;
+    display: inline;
+    font-size: 10px;
+    width: 100%;
+    line-height: 1;
+    color: rgba(0, 0, 0, 0.8);
+    content: "\25BC";
+    position: absolute;
+    text-align: center;
+}
+
+/* Style northward tooltips differently */
+.d3-tip.n:after {
+    margin: -1px 0 0 0;
+    top: 100%;
+    left: 0;
+}
+
+#viz {
+    height: 100%;
+}
+
+.feature {
+    stroke: #333;
+    stroke-width: 0.3px;
+    fill: none;
+}
+
+.bunker {
+    fill: #e9dfb1;
+    stroke: #c9bf96;
+}
+
+.tee {
+    fill: #d6ddc2;
+    stroke: #687b64;
+}
+
+.fairway {
+    fill: #ebf0d5;
+}
+
+.green {
+    fill: #c7e6b7;
+}
+
+.golf_course {
+    fill: #c5d1a9;
+}
+
+.golfstroke {
+    stroke: #ffe12f;
+    stroke-width: 1.5;
+    stroke-linecap: round;
+    fill: #f4d62d;
+    fill-opacity: 0.001;
+}
+
+.golfstroke:hover {
+    fill-opacity: 0.3;
+}
+
+.compare.golfstroke:hover {
+    fill-opacity: 0.0001;
+}
+
+.tease .golfstroke{
+    stroke-opacity: 0.05;
+}
+
+.tease .golfstroke:hover {
+    fill-opacity: 0.001;
+}
+
+.tease .golfball {
+    fill: #f7f7f7;
+    fill-opacity: 0.4;
+    stroke: none;
+}
+
+.compare .golfball {
+    fill: #f7f7f7;
+    fill-opacity: 0.6;
+    stroke: none;
+}
+
+.compare .hover {
+    fill: #000;
+    fill-opacity: 0.00001;
+    stroke:none;
+}
+
+.compare .golfstroke{
+    stroke-opacity: 0.7;
+    fill-opacity: 0.0001;
+    stroke: #f7f7f7;
+}
+
+.compare .golfstroke:hover{
+    fill-opacity: 0.0001;
+}
+
+.aim-point path,
+path.aim-point {
+    stroke: #fff;
+    stroke-width: 1;
+    stroke-dasharray: 4 2;
+    fill: none;
+}
+
+.putt-align {
+    stroke: #fff;
+    stroke-width: 0.5;
+    stroke-opacity: 0.6;
+    fill: none;
+}
+
+.pin {
+    stroke: #111;
+    fill: #373737;
+    stroke-width: 1;
+}
+
+.compare.chart .aim-point {
+    stroke-width: 1.5;
+}
+
+.compare.chart .bg-rect{
+    fill: #222;
+    fill-opacity: 0.6;
+    stroke: none;
+}
+
+.compare.chart .stat circle{
+    fill: #f7f7f7;
+    fill-opacity: 0.9;
+    stroke: none;
+}
+
+.compare.chart .stat.current circle{
+    fill: #f4d62d;
+}
+
+.compare.chart .stat.current line{
+    stroke: #f4d62d;
+    stroke-opacity: 0.6;
+    stroke-width: 0.5;
+}
+
+.compare.chart text.label {
+    text-anchor: start;
+    font-size: 8px;
+    font-weight: 500;
+    fill: #f7f7f7;
+}
+
+.compare.chart .arrow {
+    stroke: #f7f7f7;
+    fill: #333;
+    stroke-linejoin: round;
+    stroke-width: 0.5;
+}
+
+.compare.chart .marker:hover {
+    z-index: 20;
+}
+
+.compare.chart .dist.axis path,
+.compare.chart .dist.axis line,
+.compare.chart .dir.axis path,
+.compare.chart .dir.axis line,
+.compare.chart .round.axis path,
+.compare.chart .round.axis line{
+    fill: none;
+    stroke: #f7f7f7;
+    shape-rendering: crispEdges;
+}
+
+.compare.chart .dist.axis text,
+.compare.chart .dir.axis text,
+.compare.chart .round.axis text{
+    font-size: 8px;
+    font-weight: 500;
+    fill: #f7f7f7;
+}
+
+.compare.chart .y.chart-label {
+    text-anchor: middle;
+    font-size: 10px;
+    font-weight: 200;
+    fill: #f7f7f7;
+}
+
+.compare.chart .stat path.hover {
+    fill-opacity: 0.00001;
+}
+
+.compare.chart .tool-tip path {
+    stroke: #f7f7f7;
+    fill: #333;
+    stroke-linejoin: round;
+    stroke-width: 0.5;
+}
+
+.compare.chart .tool-tip line {
+    stroke: #f7f7f7;
+    stroke-width: 0.7;
+}
+
+
+.compare.chart .tool-tip text {
+    text-anchor: middle;
+    font-size: 8px;
+    font-weight: 500;
+    fill: #f7f7f7;
+}
+
+.compare.chart .chart-hint text {
+    text-anchor: middle;
+    font-size: 16px;
+    font-weight: 500;
+    fill: #f7f7f7;
+    fill-opacity: 0.5;
+    letter-spacing: 0.2em;
+
+}
+
+
+.puttstroke-tip rect,
+.puttstroke-tip path{
+    stroke: #333;
+    fill: #f4d62d;
+    stroke-width: 0.5;
+    opacity: 0.9;
+}
+
+.puttstroke-tip text{
+    text-anchor: middle;
+    font-size: 8px;
+    font-weight: 500;
+    fill: #333;
+}
+
+.golfstroke-tip rect,
+.golfstroke-tip path{
+    stroke: #f7f7f7;
+    fill: #333;
+    opacity: 0.9;
+    stroke-width: 0.5;
+}
+
+.golfstroke-tip text{
+    text-anchor: middle;
+    font-size: 8px;
+    font-weight: 500;
+    fill: #f7f7f7;
+}
+
+.stroke-circle-inner {
+    fill: #ffe12f;
+    stroke: none;
+    fill-opacity: 0.6;
+}
+
+.stroke-circle-outer {
+    fill: #ffe12f;
+    stroke: #ffe12f;
+    stroke-width: 0.5;
+    fill-opacity: 0.2;
+}
+
+.stroke-panel text {
+    fill: #e0e0e0;
+}
+
+.stroke-panel text.distance {
+    font-size: 14px;
+}
+
+.stroke-panel text.club{
+    font-size: 10px;
+}
+
+.stroke-panel text.label,
+.stroke-panel .compare text{
+    font-size: 8px;
+    font-weight: 200;
+}
+
+.stroke-panel text.location{
+    font-size: 10px;
+    fill: #3b9e3b;
+}
+
+.stroke-panel .compare path{
+    fill: #000;
+    fill-opacity: 0.4;
+    stroke: none;
+}
+
+.stroke-panel .compare {
+    cursor: pointer;
+}
+
+.stroke-panel .compare.hover text{
+    fill: #ffef9c;
+}
+
+.stroke-panel rect.bg-rect,
+.stroke-panel-title rect{
+    fill-opacity: 0.4;
+    fill: #000;
+}
+
+.stroke-panel rect.hover{
+    fill-opacity: 0.000001;
+}
+
+.stroke-panel path,
+.stroke-panel-title path{
+    stroke: #ffe12f;
+    stroke-opacity: 0.5;
+    fill: none;
+}
+
+.stroke-panel circle,
+.stroke-panel-title circle{
+    fill: #ffe12f;
+    fill-opacity: 0.5;
+    stroke: none;
+}
+
+.stroke-panel-title text{
+    font-size: 10px;
+    fill: #ffe12f;
+}
+
+.rp-hole-vis-btn .bg-rect {
+    fill-opacity: 0.6;
+    fill: #000;
+}
+
+.rp-hole-vis-btn .chevron {
+    fill: none;
+    stroke: #f7f7f7;
+    stroke-width: 1.5px;
+    stroke-linecap: round;
+}
+
+.rp-hole-vis-btn text {
+    font-size: 14px;
+    font-weight: 200;
+    text-anchor: middle;
+    alignment-baseline: middle;
+    fill: #f7f7f7;
+}
+
+.rp-hole-vis-btn .bg-hover {
+    fill-opacity: 0.0001;
+    cursor: pointer;
+}
+
+.rp-hole-vis-btn.hover text {
+    fill: #ffef9c;
+}
+
+.rp-hole-vis-btn.hover .chevron {
+    stroke: #ffef9c;
+}
+
+
+
+.hole-info rect{
+    fill-opacity: 0.4;
+}
+
+.hole-info text{
+    fill: #fff;
+    text-anchor: middle;
+}
+
+.navbar.navbar-default {
+    margin: 0 0 -24px 0;
+    padding: 4px 6px;
+    background-color: #444;
+    border: none !important;
+    border-radius: 0 !important;
+    height: 52px;
+    z-index: 100;
+    box-shadow: 0 2px 2px rgba(30,30,30,0.4);
+}
+
+.navbar.navbar-default a,
+.navbar.navbar-default a.active{
+    color: #fefefe;
+    font-size: 12px;
+    font-variant: small-caps;
+    background-color: inherit;
+}
+
+.navbar.navbar-default a:hover,
+.navbar.navbar-default a.active:hover{
+    color: #fefefe;
+    background-color: inherit;
+}
+
+.navbar-left {
+    margin: 12px 0 4px 0;
+}
+
+.navbar.navbar-default h1 {
+    font-size: 14px;
+    font-variant: small-caps;
+    text-align: center;
+    color: #fefefe;
+    margin: 12px 0 4px 0;
+}
+
+.navbar-middle {
+    position: relative;
+}
+
+.navbar.navbar-default .navbar-svg {
+    position: relative;
+    margin: -42px 0 0 25%;
+    left: -240px;
+}
+
+.navbar-svg text {
+    font-size: 8px;
+    fill: #e7e7e7;
+}
+
+.content {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    display: block;
+    border-radius: 5px;
+    -o-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+}
+
+.panel {
+    position: relative;
+    min-height: 520px;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    margin: -24px 0 0 0;
+}
+
+.overflowing {
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+#context-menu {
+    padding: 6px 0;
+    color: #333;
+    font-family: Arial, Helvetica, sans-serif;
+    border: 1px solid #bbb;
+    -moz-box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+    -webkit-box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+    box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.3);
+    border-radius: 6px;
+    -moz-border-radius: 6px;
+    -webkit-border-radius: 6px;
+    position: absolute;
+    background-color: #f3f3f3;
+    z-index: 100;
+    display: none;
+    width: 175px;
+}
+
+#context-menu ul {
+    padding: 0 0;
+}
+
+#context-menu li {
+    cursor: default;
+    float: left;
+    display: block;
+    width: 100%;
+    font-size: 13px;
+    line-height: 13px;
+    font-weight: 300;
+    padding: 6px 12px;
+}
+
+#context-menu li.disabled {
+    color: #cccccc;
+}
+
+#context-menu li.disabled:hover,
+#context-menu li.disabled:focus {
+    color: #cccccc;
+    background-color: transparent;
+}
+
+#context-menu li:hover,
+#context-menu li:focus{
+    background-color: #999999;
+    color: #f7f7f7;
+}
+
+#panel-overview{
+    background-color: #a2a2a2;
+}
+
+#round-list {
+    background-color: #c6c6c6;
+    z-index: 20;
+    height: 100%;
+    width: 90%;
+    position: relative;
+    padding: 20px 10px;
+    box-shadow: 1px 4px 5px rgba(30,30,30,0.7);
+}
+
+#round-list .list-container{
+    overflow-y: scroll;
+    height: 96%;
+}
+
+#round-list .list-container > ul {
+    list-style-type: none;
+    padding: 0 0;
+    margin: 0 0;
+}
+
+.round-item {
+    min-height: 10px;
+    padding: 0 0;
+    background: #aaaaaa;
+    border-left: solid 0.5px #e8e8e8;
+    border-right: solid 0.5px #e8e8e8;
+    border-bottom: solid 0.5px #e8e8e8;
+}
+
+.round-item svg text {
+    fill: #6b6b6b;
+    font-size: 7px;
+    text-anchor: middle;
+    font-weight: 500;
+}
+
+.round-col {
+    display: block;
+    width: 12.5%;
+    position: relative;
+    min-height: 1px;
+    height: 100%;
+    float: left;
+    border-left: solid 0.5px #e8e8e8;
+}
+
+#round-list .list-container > ul > li {
+    cursor: pointer;
+}
+
+.round-item:nth-child(odd) {
+    background: #b9b9b9;
+}
+
+.round-item:hover,
+.round-item:nth-child(odd):hover{
+    background: #939393;
+}
+
+#round-list-header {
+    background-color: #dfdfdf;
+    padding: 8px 4px 4px 4px;
+    height: 32px;
+    border-bottom: solid 1px #e8e8e8;
+    position: relative;
+    top: 0;
+}
+
+.round-info {
+    color: #404040;
+    font-size: 10px;
+    font-weight: 500;
+    display: inline-block;
+    position: relative;
+}
+
+.round-info.value {
+    font-size: 13px;
+    font-weight: 300;
+}
+
+.round-span.value {
+    font-size: 18px;
+    font-weight: 300;
+}
+
+.round-span {
+    font-size: 14px;
+    font-weight: 200;
+    vertical-align: middle;
+    top: 50%;
+    margin-top: -0.82em;
+    text-align: center;
+    display: block;
+    position: relative;
+}
+
+
+#rp-hole-vis {
+    background: #a2a2a2;
+    padding: 0 0;
+}
+
+
+#rp-hole-list {
+    z-index: 20;
+    height: 100%;
+    position: relative;
+    padding: 0 0;
+    background-color: #dddddd;
+    box-shadow: 5px 0 5px rgba(30,30,30,0.7);
+}
+
+#rp-hole-list .list-container {
+    overflow-y: scroll;
+    height: 96%;
+}
+
+#rp-hole-list .list-container > ul {
+    list-style-type: none;
+    padding: 0 0;
+    margin: 0 0;
+}
+
+.rp-hole-item {
+    min-height: 10px;
+    padding: 0 0;
+    border-left: solid 0.5px #bdbdbd;
+    border-right: solid 0.5px #bdbdbd;
+    border-bottom: solid 0.5px #bdbdbd;
+}
+
+.rp-hole-item.selected {
+    background: #cecece;
+}
+
+.rp-hole-item .hole-number {
+    width: 16px;
+    height: 16px;
+    border: solid 1.5px #255cc8;
+    border-radius: 8px;
+    display: inline-block;
+    position: relative;
+    top: 2px;
+    left: 2px;
+    margin: 0 0;
+    float: left;
+}
+
+.rp-hole-item .hole-score-marker {
+    width: 10px;
+    height: 10px;
+    background-color: #ffffbf;
+    border-radius: 5px;
+    display: inline-block;
+    position: relative;
+    top: -44px;
+    margin: 0 0;
+    float: right;
+}
+
+.rp-hole-col {
+    display: block;
+    width: 33.3%;
+    position: relative;
+    min-height: 1px;
+    height: 100%;
+    float: left;
+    border-left: solid 0.5px #bdbdbd;
+}
+
+.rp-hole-item .rp-hole-col.round-score,
+.rp-hole-item .rp-hole-col.num-putts{
+    background: #d7d7d7;
+}
+
+.rp-hole-item .rp-hole-col.num-strokes{
+    background: #c6c6c6;
+}
+
+.rp-hole-item.selected .rp-hole-col.round-score,
+.rp-hole-item.selected .rp-hole-col.num-putts {
+    background: #c8c8c8;
+}
+
+.rp-hole-item.selected .rp-hole-col.num-strokes{
+    background: #b6b6b6;
+}
+
+#rp-hole-list .list-container > ul > li {
+    cursor: pointer;
+}
+
+.rp-hole-item .hole-number > span {
+    color: #255cc8;
+    text-align: center;
+    font-size: 8px;
+    font-weight: 600;
+    display: block;
+    position: relative;
+    top: 2.2px;
+}
+
+.round-out-in.rp-hole-item {
+    background: #a2b9dc;
+}
+
+.round-out-in.rp-hole-item .rp-hole-col.round-score,
+.round-out-in.rp-hole-item .rp-hole-col.num-putts{
+    background: #95abce;
+}
+
+.round-out-in.rp-hole-item .rp-hole-col.num-strokes{
+    background: #8699ba;
+}
+
+.round-out-in.rp-hole-item.total {
+    background: #939393;
+}
+
+.round-out-in.rp-hole-item.total .rp-hole-col.round-score,
+.round-out-in.rp-hole-item.total .rp-hole-col.num-putts{
+    background: #898989;
+}
+
+.round-out-in.rp-hole-item.total .rp-hole-col.num-strokes{
+    background: #767676;
+}
+
+.round-out-in.rp-hole-item span {
+    color: #f7f7f7;
+}
+
+.round-out-in.rp-hole-item .hole-number span {
+    color: #f7f7f7;
+}
+.round-out-in.rp-hole-item .hole-number{
+    border: solid 1.5px #f7f7f7;
+}
+
+#rp-hole-list-header {
+    background-color: #c3c3c3;
+    padding: 8px 4px 4px 4px;
+    height: 32px;
+    border-bottom: solid 1px #bdbdbd;
+    position: relative;
+    top: 0;
+}
+
+.rp-hole-score.value {
+    font-size: 18px;
+    font-weight: 300;
+}
+
+.rp-hole-score {
+    font-size: 9px;
+    font-weight: 500;
+    vertical-align: middle;
+    top: 50%;
+    margin-top: -0.82em;
+    text-align: center;
+    display: block;
+    position: relative;
+}
+
+.rp-hole-info.value {
+    font-size: 11px;
+    font-weight: 300;
+}
+
+.rp-hole-info {
+    font-size: 8px;
+    font-weight: 500;
+    display: inline-block;
+    position: relative;
+}

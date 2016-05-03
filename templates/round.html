@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+    <li class="round-item" data-bind="click: function(data,event){oTool.roundClick($element, $data);}">
+    <div class="round-total-item" style="height: 72px; position: relative;">
+        <div style="display: inline-block; width: 20%; position: relative; height: 100%; float: left;">
+            <div style="display: inline-block; width: 100%; position: relative; top: 10px; left: 4px; height: 20px; float: left;">
+                <span class="round-info value" data-bind="text: $data.dateString()"></span>
+            </div>
+            <div style="display: inline-block; width: 100%; position: relative; left: 4px; top: 10px; height: 30px; float: left;">
+                <span class="round-info">Pebble Beach GL</span>
+            </div>
+        </div>
+        <div style="display: inline-block; width: 40%; position: relative; height: 100%">
+            <div class="round-col">
+                <span class="round-span" data-bind="text: $data.total.fairwayHitString()"></span>
+            </div>
+            <div class="round-col">
+                <span class="round-span" data-bind="text: $data.total.greenInRegString()"></span>
+            </div>
+            <div class="round-col">
+                <span class="round-span" data-bind="text: $data.total.upAndDownString()"></span>
+            </div>
+            <div class="round-col">
+                <span class="round-span" data-bind="text: $data.total.sandSaveString()"></span>
+            </div>
+            <div class="round-col">
+                <span class="round-span value" style="font-weight: 400; color: #193f89" data-bind="text: $data.total.numStrokes"></span>
+            </div>
+            <div class="round-col">
+                <span class="round-span value" data-bind="text: $data.total.parValue"></span>
+            </div>
+            <div class="round-col">
+                <span class="round-span value" style="font-weight: 400; color: #e7e7e7" data-bind="text: $data.total.roundScore"></span>
+            </div>
+            <div class="round-col" style="border-right: solid 0.5px #e8e8e8;">
+                <span class="round-span value" data-bind="text: $data.total.numPutts"></span>
+            </div>
+        </div>
+        <div style="display: inline-block; width: 39%; position: relative; height: 100%">
+            <svg height="72" width="440" style="position: relative; margin-left:-240px; left:50%" data-bind="visible: oTool.drawRound($element,$data)">
+
+            </svg>
+        </div>
+    </div>
+</li>
+</body>
+</html>
