@@ -556,7 +556,7 @@ path.aim-point {
 .round-item {
     min-height: 10px;
     padding: 0 0;
-    background: #aaaaaa;
+    background: #f7f7f7;
     border-left: solid 0.5px #e8e8e8;
     border-right: solid 0.5px #e8e8e8;
     border-bottom: solid 0.5px #e8e8e8;
@@ -584,21 +584,25 @@ path.aim-point {
 }
 
 .round-item:nth-child(odd) {
-    background: #b9b9b9;
+    background: #ffffff;
 }
 
 .round-item:hover,
 .round-item:nth-child(odd):hover{
-    background: #939393;
+    background: #dddddd;
 }
 
 #round-list-header {
-    background-color: #dfdfdf;
+    background-color: #00284b;
     padding: 8px 4px 4px 4px;
     height: 32px;
     border-bottom: solid 1px #e8e8e8;
     position: relative;
     top: 0;
+}
+
+#round-list-header span.rp-hole-score{
+    color: #ebebeb;
 }
 
 .round-info {
