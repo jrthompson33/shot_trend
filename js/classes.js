@@ -143,19 +143,19 @@ RoundOutIn = function(holes,oi){
 };
 
 RoundOutIn.prototype.fairwayHitString = function() {
-    return this.fairwayHit==100?'100 %':parseFloat(Math.round(this.fairwayHit * 10) / 10).toFixed(1) + " %";
+    return this.fairwayHit==100?'100 %':isNaN(this.fairwayHit)?'N/A':parseFloat(Math.round(this.fairwayHit * 10) / 10).toFixed(1) + " %";
 };
 
 RoundOutIn.prototype.greenInRegString = function() {
-    return this.greenInReg==100?'100 %':parseFloat(Math.round(this.greenInReg * 10) / 10).toFixed(1) + " %";
+    return this.greenInReg==100?'100 %':isNaN(this.greenInReg)?'N/A':parseFloat(Math.round(this.greenInReg * 10) / 10).toFixed(1) + " %";
 };
 
 RoundOutIn.prototype.upAndDownString = function() {
-    return this.upAndDown==100?'100 %':parseFloat(Math.round(this.upAndDown * 10) / 10).toFixed(1) + " %";
+    return this.upAndDown==100?'100 %':isNaN(this.upAndDown)?'N/A':parseFloat(Math.round(this.upAndDown * 10) / 10).toFixed(1) + " %";
 };
 
 RoundOutIn.prototype.sandSaveString = function() {
-    return this.sandSave==100?'100 %':parseFloat(Math.round(this.sandSave * 10) / 10).toFixed(1) + " %";
+    return this.sandSave==100?'100 %':isNaN(this.sandSave)?'N/A':parseFloat(Math.round(this.sandSave * 10) / 10).toFixed(1) + " %";
 };
 
 Hole.prototype.setStrokes = function(s) {
