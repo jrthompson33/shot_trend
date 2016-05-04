@@ -1073,6 +1073,10 @@
             cDir.label = showDistance?'Right/Left from Center (yds)':'Right/Left of Pin (ft)';
             // TODO zoom to all of the shots in frame
 
+            if(stroke.shot.distanceToPinBefore < 30*36){
+                zoomToStroke(stroke);
+            }
+
             var select = shotsG.selectAll('.stroke')
                 .data([stroke], function(d){return d.shot.id;});
 

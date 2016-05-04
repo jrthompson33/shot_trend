@@ -7,7 +7,7 @@
     var roundList;
 
     var xScale = d3.scale.linear()
-        .range([60,420]).domain([1,18]);
+        .range([60,360]).domain([1,18]);
 
     var yScale = d3.scale.linear()
         .range([8,56]).domain([3,-2]);
@@ -64,9 +64,30 @@
 
         chart.append('text')
             .style('font-size', '9px')
+            .attr('y', yScale(0))
+            .attr('x', 36)
+            .style('text-anchor','end')
+            .text('E');
+
+        chart.append('text')
+            .style('font-size', '9px')
+            .attr('y', yScale(-1))
+            .attr('x', 36)
+            .style('text-anchor','end')
+            .text('-1');
+
+        chart.append('text')
+            .style('font-size', '9px')
+            .attr('y', yScale(1))
+            .attr('x', 36)
+            .style('text-anchor','end')
+            .text('+1');
+
+        chart.append('text')
+            .style('font-size', '9px')
             .attr('y', 68)
-            .attr('x', 30)
-            .style('text-anchor','right')
+            .attr('x', 36)
+            .style('text-anchor','end')
             .text('Holes');
 
         var select = chart.selectAll('.hole')
